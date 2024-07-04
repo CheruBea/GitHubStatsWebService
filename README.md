@@ -1,92 +1,187 @@
-# GitHub Stats Web Service
+@{
+    ViewData["Title"] = "Home Page";
+}
 
-Welcome to the GitHub Stats Web Service project! This project provides insights into GitHub repositories, allowing developers to quickly access detailed information about repository activity, contributions, and overall project health.
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        text-align: center; /* Center align body content */
+    }
 
-## Table of Contents
-- [Introduction](#introduction)
-- [Features](#features)
-- [Inspiration](#inspiration)
-- [Technology Stack](#technology-stack)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center; /* Center align header content */
+    }
 
-## Introduction
+    .cover, #features, #about {
+        text-align: center; /* Center align main sections */
+    }
 
-The GitHub Stats Web Service offers a user-friendly interface to search for GitHub repositories and gain insights into their activity and contributors. This project aims to help developers make informed decisions about which projects to contribute to or use as dependencies.
+    nav {
+        margin: 20px 0;
+        text-align: center;
+    }
 
-## Features
+        nav a {
+            margin: 0 15px;
+            color: #fff; /* Text color */
+            text-decoration: none;
+            font-size: 1.2em;
+        }
 
-- **Repository Search**: Quickly search for GitHub repositories by name and get detailed information including stars, forks, and issues.
-- **Commit History**: View the commit history of a repository to understand its development progress and activity.
-- **Contributor Insights**: Analyze the contributors of a repository to see who has been contributing the most and understand team dynamics.
+    .cover {
+        padding: 50px 20px;
+        background: url('/images/cover.jpg') no-repeat center center;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh; /* Adjust height for better appearance */
+        color: #333; /* Text color */
+    }
 
-## Inspiration
+        .cover h1,
+        .cover p {
+            margin: 0;
+        }
 
-This project was inspired by my passion for enhancing developer productivity and understanding project dynamics through GitHub repositories. Transparent and insightful data helps developers make informed decisions, whether it's choosing dependencies or contributing to projects.
+    .feature {
+        margin: 20px 0;
+        background-color: #f8f9fa; /* Feature background color */
+        padding: 20px;
+        border-radius: 10px;
+    }
 
-## Technology Stack
+        .feature img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
 
-- **Backend**: ASP.NET Core, C#
-- **Frontend**: HTML, CSS, Bootstrap
-- **Database**: SQL Server
-- **API**: GitHub API
-- **Deployment**: Heroku
+        .feature h3 {
+            font-size: 2em;
+            margin: 10px 0;
+        }
 
-## Installation
+        .feature p {
+            font-size: 1.2em;
+        }
 
-To set up this project locally, follow these steps:
+    #about {
+        padding: 20px;
+        background-color: #fff; /* About section background color */
+    }
 
-1. **Clone the repository**:
-    ```bash
-    git clone https://github.com/CheruBea/GitHubStatsWebService.git
-    cd GitHubStatsWebService
-    ```
+        #about h2 {
+            font-size: 2.5em;
+        }
 
-2. **Set up the database**:
-   - Ensure SQL Server is installed and running.
-   - Update the connection string in `appsettings.json` with your SQL Server details.
+        #about p {
+            font-size: 1.2em;
+            line-height: 1.5em;
+            margin: 20px 0;
+        }
 
-3. **Install dependencies**:
-    ```bash
-    dotnet restore
-    ```
+    footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
 
-4. **Apply database migrations**:
-    ```bash
-    dotnet ef database update
-    ```
+        footer p {
+            margin: 0;
+        }
+</style>
 
-5. **Run the application**:
-    ```bash
-    dotnet run
-    ```
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#home">GitHub Stats Web Service</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary" href="https://your-deployed-project-url.com">Go to Application</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
 
-6. **Open the application**:
-    Open your web browser and navigate to `http://localhost:5000`.
+<section id="home" class="cover">
+    <div class="container">
+        <h1 class="display-4">GitHub Stats Web Service</h1>
+        <p class="lead">Get insights into GitHub repositories</p>
+        <a class="btn btn-primary btn-lg" href="#features">Explore Features</a>
+    </div>
+</section>
 
-## Usage
+<section id="features" class="my-5">
+    <div class="container">
+        <h2>Key Features</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-4 feature">
+                <img src="https://via.placeholder.com/300" class="img-fluid" alt="Repository Search Image">
+                <h3>Repository Search</h3>
+                <p>Quickly search for GitHub repositories by name and get detailed information including stars, forks, and issues.</p>
+            </div>
+            <div class="col-md-4 feature">
+                <img src="https://via.placeholder.com/300" class="img-fluid" alt="Commit History Image">
+                <h3>Commit History</h3>
+                <p>View the commit history of a repository to understand its development progress and activity.</p>
+            </div>
+            <div class="col-md-4 feature">
+                <img src="https://via.placeholder.com/300" class="img-fluid" alt="Contributor Insights Image">
+                <h3>Contributor Insights</h3>
+                <p>Analyze the contributors of a repository to see who has been contributing the most and understand team dynamics.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-- Navigate to the home page to explore the features of the GitHub Stats Web Service.
-- Use the search functionality to find repositories by name.
-- View the commit history and contributor insights of the repositories you are interested in.
+<section id="about" class="my-5 bg-light">
+    <div class="container">
+        <h2>About the Project</h2>
+        <p>This project was inspired by my passion for enhancing developer productivity and understanding project dynamics through GitHub repositories. We believe that transparent and insightful data helps developers make informed decisions, whether it's choosing dependencies or contributing to projects.</p>
+        <p>This project is a Portfolio Project for Holberton School, aimed at showcasing my skills in software development and data analysis.</p>
+        <p>Learn more about the project and its development on my <a href="https://github.com/CheruBea/GitHubStatsWebService">GitHub repository</a>.</p>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <h3>Beatrice Cheruto</h3>
+                <ul class="list-unstyled">
+                    <li><a href="https://www.linkedin.com/in/beatrice-cheruto-bc061096/">LinkedIn</a></li>
+                    <li><a href="https://github.com/CheruBea/GitHubStatsWebService">GitHub</a></li>
+                    <li><a href="https://x.com/Cheruubea">X</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
 
-## Contributing
-
-Contributions are welcome! If you have any suggestions or improvements, please create an issue or submit a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
-## Contact
-
-Beatrice Cheruto
-
-- [LinkedIn](https://www.linkedin.com/in/beatrice-cheruto-bc061096/)
-- [GitHub](https://github.com/CheruBea/GitHubStatsWebService)
-- [Twitter](https://x.com/Cheruubea)
-
-Feel free to reach out if you have any questions or need further assistance!
+<footer>
+    <div class="container">
+        <p>&copy; 2024 GitHub Stats. All rights reserved.</p>
+    </div>
+</footer>
+</html>
