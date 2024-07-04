@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitHubStatsWebService.Domain", "GitHubStatsWebService.Domain\GitHubStatsWebService.Domain.csproj", "{1D11E408-2A76-4A66-B587-6B4DF3AE24E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitHubStatsWebService.Application", "GitHubStatsWebService.Application\GitHubStatsWebService.Application.csproj", "{2B77A562-2F17-41C4-AF1C-75674794EDBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitHubStatsWebService.Infrastructure", "GitHubStatsWebService.Infrastructure\GitHubStatsWebService.Infrastructure.csproj", "{88E7464F-E3B6-4036-B07F-2C68F593E4D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitHubStatsWebService.WebUI", "GitHubStatsWebService.WebUI\GitHubStatsWebService.WebUI.csproj", "{E9F9560C-B64E-467F-9F03-4B6477665C9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitHubStatsWebService.WebUI.Shared", "GitHubStatsWebService.WebUI.Shared\GitHubStatsWebService.WebUI.Shared.csproj", "{63EC810C-CA20-43C0-85B8-DE83B60FC5E5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D11E408-2A76-4A66-B587-6B4DF3AE24E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D11E408-2A76-4A66-B587-6B4DF3AE24E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D11E408-2A76-4A66-B587-6B4DF3AE24E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D11E408-2A76-4A66-B587-6B4DF3AE24E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B77A562-2F17-41C4-AF1C-75674794EDBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B77A562-2F17-41C4-AF1C-75674794EDBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B77A562-2F17-41C4-AF1C-75674794EDBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B77A562-2F17-41C4-AF1C-75674794EDBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88E7464F-E3B6-4036-B07F-2C68F593E4D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88E7464F-E3B6-4036-B07F-2C68F593E4D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88E7464F-E3B6-4036-B07F-2C68F593E4D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88E7464F-E3B6-4036-B07F-2C68F593E4D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9F9560C-B64E-467F-9F03-4B6477665C9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9F9560C-B64E-467F-9F03-4B6477665C9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9F9560C-B64E-467F-9F03-4B6477665C9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9F9560C-B64E-467F-9F03-4B6477665C9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63EC810C-CA20-43C0-85B8-DE83B60FC5E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63EC810C-CA20-43C0-85B8-DE83B60FC5E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63EC810C-CA20-43C0-85B8-DE83B60FC5E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63EC810C-CA20-43C0-85B8-DE83B60FC5E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
