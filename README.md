@@ -1,6 +1,4 @@
-@{
-    ViewData["Title"] = "Home Page";
-}
+
 
 <style>
     body {
@@ -184,4 +182,3 @@
         <p>&copy; 2024 GitHub Stats. All rights reserved.</p>
     </div>
 </footer>
-</html>
