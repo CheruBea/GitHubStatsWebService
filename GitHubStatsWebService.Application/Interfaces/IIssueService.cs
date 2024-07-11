@@ -1,10 +1,11 @@
 ﻿using GitHubStatsWebService.Application.DTOs;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace GitHubStatsWebService.Application.Interfaces
 {
-    public interface IRepositoryService
+    public interface IIssueService
     {
-        Task<RepositoryDto> GetRepositoryAsync(string owner, string repoName);
+        Task<List<IssueDto>> GetIssuesAsync(string owner, string repoName);
     }
 }

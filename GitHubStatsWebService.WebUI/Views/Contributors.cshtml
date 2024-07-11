@@ -1,0 +1,21 @@
+﻿@model List<GitHubStatsWebService.Application.DTOs.ContributorDto>
+
+<h2>Contributors for @ViewData["RepositoryName"]</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Contributions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var contributor in Model)
+        {
+            <tr>
+                <td>@contributor.UserName</td>
+                <td>@contributor.Contributions</td>
+            </tr>
+        }
+    </tbody>
+</table>

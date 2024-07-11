@@ -1,0 +1,15 @@
+﻿@model GitHubStatsWebService.Application.DTOs.RepositoryStatsDto
+
+<h2>Statistics for @ViewData["RepositoryName"]</h2>
+
+<div>
+    <h3>Commits: @Model.Commits</h3>
+    <h3>Contributors: @Model.Contributors</h3>
+    <h3>Open Issues: @Model.OpenIssues</h3>
+
+    <form asp-action="Refresh" method="post">
+        <input type="hidden" name="owner" value="@ViewData["Owner"]" />
+        <input type="hidden" name="repoName" value="@ViewData["RepoName"]" />
+        <button type="submit" class="btn btn-secondary">Refresh Data</button>
+    </form>
+</div>

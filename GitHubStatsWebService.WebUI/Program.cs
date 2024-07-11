@@ -1,11 +1,8 @@
 using GitHubStatsWebService.Application.Interfaces;
-using GitHubStatsWebService.Application.Services;
-using GitHubStatsWebService.Infrastructure;
 using GitHubStatsWebService.Infrastructure.Data;
+using GitHubStatsWebService.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
-using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +10,33 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // Register HttpClient and RepositoryService
-builder.Services.AddHttpClient<IRepositoryService, RepositoryService>();
+builder.Services.AddHttpClient<IRepositoryStatsService, RepositoryStatsService>(client =>
+{
+    client.BaseAddress = new Uri("https://api.github.com/");
+    client.DefaultRequestHeaders.UserAgent.TryParseAdd("request"); // GitHub API requires a User-Agent header
+    client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+});
+
+builder.Services.AddHttpClient<ICommitService, CommitService>(client =>
+{
+    client.BaseAddress = new Uri("https://api.github.com/");
+    client.DefaultRequestHeaders.UserAgent.TryParseAdd("request"); // GitHub API requires a User-Agent header
+    client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+});
+
+builder.Services.AddHttpClient<IContributorService, ContributorService>(client =>
+{
+    client.BaseAddress = new Uri("https://api.github.com/");
+    client.DefaultRequestHeaders.UserAgent.TryParseAdd("request"); // GitHub API requires a User-Agent header
+    client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+});
+
+builder.Services.AddHttpClient<IIssueService, IssueService>(client =>
+{
+    client.BaseAddress = new Uri("https://api.github.com/");
+    client.DefaultRequestHeaders.UserAgent.TryParseAdd("request"); // GitHub API requires a User-Agent header
+    client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+});
 
 // Configure Entity Framework and SQL Server
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -52,5 +75,8 @@ app.UseSwaggerUI(c =>
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "GitHub Stats Web Service V1");
     c.RoutePrefix = string.Empty; // Serve the Swagger UI at the app's root
 });
+
+// Serve the default file (index.html) for the frontend
+app.MapFallbackToFile("index.html");
 
 app.Run();

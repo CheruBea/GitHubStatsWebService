@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "GitHubStatsWebService.Application/1.0.0": {
+        "dependencies": {
+          "GitHubStatsWebService.Domain": "1.0.0"
+        },
+        "runtime": {
+          "GitHubStatsWebService.Application.dll": {}
+        }
+      },
+      "GitHubStatsWebService.Domain/1.0.0": {
+        "runtime": {
+          "GitHubStatsWebService.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "GitHubStatsWebService.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GitHubStatsWebService.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
