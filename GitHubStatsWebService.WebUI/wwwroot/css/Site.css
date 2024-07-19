@@ -1,0 +1,90 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+nav {
+    margin: 20px 0;
+}
+
+    nav a {
+        margin: 0 15px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.2em;
+    }
+
+.cover, #features, #about {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.cover {
+    background: url('/images/cover.jpg') no-repeat center center;
+    background-size: cover;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+}
+
+.feature {
+    margin: 20px 0;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center; /* Center-align text and images */
+    margin-bottom: 2rem; /* Add space between features */
+}
+
+    .feature img {
+        width: 100%;
+        height: auto;
+        max-width: 300px; /* Increase max width for better visibility */
+        margin-bottom: 15px .feature h3 {
+        font-size: 2em;
+        margin: 10px 0;
+        margin-top: 1rem;
+    }
+
+    .feature p {
+        font-size: 1.2em;
+    }
+
+#about {
+    background-color: #fff;
+}
+
+    #about h2 {
+        font-size: 2.5em;
+    }
+
+    #about p {
+        font-size: 1.2em;
+        line-height: 1.5em;
+        margin: 20px 0;
+    }
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+    footer p {
+        margin: 0;
+    }

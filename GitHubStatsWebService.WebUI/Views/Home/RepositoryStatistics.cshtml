@@ -1,0 +1,108 @@
+﻿@{
+    ViewData["Title"] = "Repository Statistics";
+    var owner = ViewData["Owner"];
+    var repoName = ViewData["RepoName"];
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/site.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">GitHub Stats Web Service</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/#features">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-primary" href="https://your-deployed-project-url.com">Go to Application</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="results" class="my-5">
+        <div class="container">
+            <h2>Repository Statistics</h2>
+            <div id="repoStats"></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 GitHub Stats Web Service. All rights reserved.</p>
+    </footer>
+
+    <script>
+        $(document).ready(function () {
+            var owner = "@owner";
+            var repoName = "@repoName";
+
+            if (owner && repoName) {
+                // Fetch repository statistics
+                fetch(`/api/repository/${owner}/${repoName}/statistics`)
+                    .then(response => response.json())
+                    .then(data => {
+                        var repoStats = $('#repoStats');
+                        repoStats.empty();
+
+                        if (data.message) {
+                            repoStats.append(`<p>${data.message}</p>`);
+                        } else {
+                            // Display repository statistics
+                            repoStats.append(`<h3>${data.repoName}</h3>`);
+                            repoStats.append(`<p>Stars: ${data.stars}</p>`);
+                            repoStats.append(`<p>Forks: ${data.forks}</p>`);
+                            repoStats.append(`<p>Open Issues: ${data.openIssues}</p>`);
+                            repoStats.append(`<p>Commits: ${data.commits}</p>`);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching repository statistics:', error);
+                    });
+
+                // Fetch contributors
+                fetch(`/api/repository/${owner}/${repoName}/contributors`)
+                    .then(response => response.json())
+                    .then(contributors => {
+                        var repoStats = $('#repoStats');
+                        if (contributors.message) {
+                            repoStats.append(`<p>${contributors.message}</p>`);
+                        } else {
+                            repoStats.append('<h3>Contributors</h3>');
+                            var contributorsList = $('<ul>');
+                            contributors.forEach(contributor => {
+                                contributorsList.append(`<li>${contributor.username} (${contributor.contributions} contributions)</li>`);
+                            });
+                            repoStats.append(contributorsList);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching contributors:', error);
+                    });
+            } else {
+                $('#repoStats').append('<p>Invalid repository details provided.</p>');
+            }
+        });
+    </script>
+</body>
+</html>

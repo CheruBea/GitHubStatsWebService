@@ -36,8 +36,17 @@ namespace GitHubStatsWebService.WebUI.Controllers
             {
                 // Extract owner and repo name from owner/repo format
                 var parts = repoDetails.Split('/');
-                owner = parts[0];
-                repoName = parts[1];
+                if (parts.Length >= 2)
+                {
+                    owner = parts[0];
+                    repoName = parts[1];
+                }
+                else
+                {
+                    // Handle invalid input
+                    ViewData["Error"] = "Invalid repository format.";
+                    return View("Index");
+                }
             }
             else
             {
@@ -46,8 +55,16 @@ namespace GitHubStatsWebService.WebUI.Controllers
                 return View("Index");
             }
 
-            // Redirect to RepositoryController to fetch statistics
-            return RedirectToAction("Search", "Repository", new { owner, repoName });
+            // Redirect to RepositoryStatistics action with parameters
+            return RedirectToAction("RepositoryStatistics", "Home", new { owner, repoName });
+        }
+
+        [HttpGet]
+        public IActionResult RepositoryStatistics(string owner, string repoName)
+        {
+            ViewData["Owner"] = owner;
+            ViewData["RepoName"] = repoName;
+            return View();
         }
     }
 }
